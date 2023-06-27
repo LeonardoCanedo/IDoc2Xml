@@ -1,3 +1,3 @@
-# IDoc2Xslt
-IDoc2Xslt is an open-source XSLT-based tool that automates the conversion of IDoc documents to certain Xml format (STEP XML). With IDoc2Xslt, users can easily convert large volumes of IDoc data to another Xml format, making it easier to import the data into software applications that support the Xml standard.
+# IDoc2Xml
 
+IDoc2Xml is an open-source software tool that simplifies the conversion of IDoc XML files into a more general XML format. By generating a dynamic XSLT file, it automates the transformation process, producing a simplified representation of the IDoc data. This simplified version can be easily integrated into other systems or used for data analysis purposes. Additionally, IDoc2Xml extracts all the values from the IDoc document and organizes them in an array format, enabling convenient access to the extracted data. With its XSLT-based approach, IDoc2Xml streamlines the process of working with IDocs, eliminating the need for complex middleware systems.
