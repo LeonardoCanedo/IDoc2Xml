@@ -1,26 +1,12 @@
 import pandas as pd
-import lxml.etree as ET
 # imports the file that creates the tag dictionary, tagsDict is the name of the dictionary that we'll use
 import srcDictionary as srcDictionary
 # creates DataFrame with source excel file
 df = pd.read_excel('ExcelReferenciaSourceTarget.xlsx', engine='openpyxl')
-# parse the XML file
-tree = ET.parse('source.xml')
-# get the root element
-root = tree.getroot()
 # target column tags in an array
 targetTags = df['Target'].dropna().values
 # dictionary that will be filled with the targets tags and their paths based on the source tags/file
 targetWithPathDict = {}
-
-# getting the xsl commands on variables, they must be concatenated with the 
-xslValueOf = '<xsl:value-of select="' 
-xslForEach = '<xsl:for-each select="'
-# use case: xslValueOf+srcDictionary.tagsDict[tag/key]+'">'
-
-def valueOfConstructorTag(key):
-    tag = xslValueOf+srcDictionary.srcTagsDict[key]+'">'
-    return tag
 
 
 def appendTargetAndPathToDictionary():
@@ -28,7 +14,7 @@ def appendTargetAndPathToDictionary():
     for path in srcDictionary.srcTagsDict.values():
         targetWithPathDict[targetTags[i]] = path
         i = i + 1
-    print(targetWithPathDict)
+    # print(targetWithPathDict)
     return targetWithPathDict
 
 
@@ -48,6 +34,3 @@ appendTargetAndPathToDictionary()
 #    'PUM13831': 'ZCFLA_MAT/IDOC/E1MARAM/BISMT',
 #    'INNOVACION13571': 'ZCFLA_MAT/IDOC/E1MARAM/MEINS',
 #    'ATRIBLEGALESPERU13597': 'ZCFLA_MAT/IDOC/E1MARAM/BLANZ'}
-
-
-
